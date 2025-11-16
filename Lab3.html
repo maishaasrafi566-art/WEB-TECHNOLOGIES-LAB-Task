@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us</title>
+<style>
+body
+ {
+    font-family: 'Times New Roman', Times, serif
+    background-color: white;
+ }
+
+h2 {
+    margin-left: 20px;
+}
+
+.form-box
+ {
+    width: 600px;
+    background-color: white;
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
+}
+
+label 
+{
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="email"], 
+textarea {
+ width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+textarea 
+{
+    height: 80px;
+}
+
+input[type="checkbox"] 
+{
+    margin-top: 10px;
+}
+
+button {
+    background-color: #446688;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #335577;
+}
+
+.note {
+    background-color: #446688;
+    color: white;
+    padding: 5px 10px ;
+    border-radius: 5px;
+ position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+</style>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+
+<div class="form-box">
+    <div class="note">Remember to fill in all fields!</div>
+    
+    <label>Name:</label>
+    <input type="text" name="name">
+ <label>Email:</label>
+    <input type="email" name="email">
+     <label>Message:</label>
+    <textarea name="message"></textarea>
+    
+    <label>
+    <input type="checkbox" name="subscribe"> Subscribe to newsletter
+    </label>
+    
+    <button>Send</button>
+</div>
+
+</body>
+</html>
