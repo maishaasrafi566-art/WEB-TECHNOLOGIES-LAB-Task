@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Simple Registration Form</title>
+  <style>
+    span.error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body style="background-color: lightblue;">
+  <h1>Registration Form</h1>
+
+  <form onsubmit="return validate(this);">
+
+    <!-- Name -->
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Enter your full name">
+    <br><span id="nameErr" class="error"></span><br><br>
+
+    <!-- Password -->
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter a password">
+    <br><span id="passwordErr" class="error"></span><br><br>
+
+<!-- Date -->
+    <label for="birthdate">Date:</label><br>
+    <input type="date" id="birthdate" name="birthdate">
+    <br><span id="dateErr" class="error"></span><br><br>
+
+    <!-- Gender -->
+    <span>Gender:</span><br>
+    <input type="radio" id="gender_m" name="gender" value="male">
+    <label for="gender_m">Male</label><br>
+
+    <input type="radio" id="gender_f" name="gender" value="female">
+    <label for="gender_f">Female</label><br>
+
+    <input type="radio" id="gender_o" name="gender" value="other">
+    <label for="gender_o">Other</label><br>
+
+    <span id="genderErr" class="error"></span><br><br>
+
+    <!-- Languages -->
+    <span>Languages you speak:</span><br>
+    <input type="checkbox" id="lang_en" name="languages" value="English">
+    <label for="lang_en">English</label><br>
+
+    <input type="checkbox" id="lang_bn" name="languages" value="বাংলা">
+    <label for="lang_bn">বাংলা</label><br>
+
+    <span id="langErr" class="error"></span><br>
+ <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <!-- JavaScript Validation -->
+  <script>
+    function validate(form) {
+
+      let valid = true;
+
+      // Clear all error messages
+      document.querySelectorAll(".error").forEach(e => e.innerHTML = "");
+
+      // Name
+      if (form.name.value.trim() === "") {
+        document.getElementById("nameErr").innerHTML = "Name is required";
+        valid = false;
+      }
+
+      // Password
+      if (form.password.value.trim() === "") {
+        document.getElementById("passwordErr").innerHTML = "Password is required";
+        valid = false;
+      }
+
+      // Date
+      if (form.birthdate.value === "") {
+        document.getElementById("dateErr").innerHTML = "Date is required";
+        valid = false;
+      }
+ // Gender
+      const genderSelected = document.querySelector('input[name="gender"]:checked');
+      if (!genderSelected) {
+        document.getElementById("genderErr").innerHTML = "Please select gender";
+        valid = false;
+      }
+
+      // Language
+      const languages = document.querySelectorAll('input[name="languages"]:checked');
+      if (languages.length === 0) {
+        document.getElementById("langErr").innerHTML = "Select at least one language";
+        valid = false;
+      }
+
+      // Location
+      if (form.location.value === "") {
+        document.getElementById("locationErr").innerHTML = "Please select your location";
+        valid = false;
+      }
+
+      // Bio
+      if (form.bio.value.trim() === "") {
+        document.getElementById("bioErr").innerHTML = "Biography cannot be empty";
+        valid = false;
+      }
+
+      return valid;
+    }
+  </script>
+
+</body>
+</html>
